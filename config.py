@@ -1,5 +1,5 @@
 from urllib import parse
-//tokens removed on github
+#tokens removed on github
 TOKEN = ''
 CLIENT_SECRET = ''
 REDIRECT_URI = 'http://ec2-44-211-133-5.compute-1.amazonaws.com/oauth/callback'
