@@ -11,9 +11,9 @@ import requests.auth
 import urllib.parse
 from uuid import uuid4
 from flask import abort
-
-REDDIT_CLIENT_ID = '4Kaa8ppwqqO08nV-jRaw6Q'
-REDDIT_CLIENT_SECRET = 'Cq-avemCxpa_8MeJ-dL9iS-CSwMLfw'
+#tokens removed on github
+REDDIT_CLIENT_ID = ''
+REDDIT_CLIENT_SECRET = ''
 REDDIT_REDIRECT_URI = "http://ec2-44-211-133-5.compute-1.amazonaws.com/reddit_callback"
 
 
@@ -23,10 +23,10 @@ region = 'us-east-1'
 logged=''
 email=''
 
-#------------credenziali
-dynamodb = boto3.resource('dynamodb',aws_access_key_id='ASIAY24XPWCJJD6FII52',
-                          aws_secret_access_key='o2x8LGPQsDvZkKM/Kza0DZJ25D+6npZZv3QYp4Ct',
-                          aws_session_token='FwoGZXIvYXdzEHUaDLfJxYh5g/+SeCLDjiLNAUIqz59qrBS9gbXkSUeIbElD3utkMitH1brRp3zXyyFXgnFS/bV35NQa3tyuY/J11eg9fmtl3j4+tgm1ysR/eBrKOClNhFuZRjSo2fk9XHeKBMJDjZNo/i59J88i/hvlYfuqZ/6jP4HU15G/FtbW4YHg0qrZwL4S6Mr11mqQK0GgX93qV4wlvxHqVTdwsHguF2uSXVLE4VXf1dwdj9rARAU3YZiQBxrFnc9raALDbUyAzKXO7BCic0cCC4zoNpJwf4wn3on319CfjDYO668o3rrmmwYyLVkmX8LxUkpUwA05oAlOFwN8BVeOfhGRrwAqeOi6o2pUXWuwonhy8UyCZpNLtQ==',
+
+dynamodb = boto3.resource('dynamodb',aws_access_key_id='',
+                          aws_secret_access_key='',
+                          aws_session_token='',
                           region_name=region)
 table = dynamodb.Table(TABLE_NAME)
 auth = Blueprint('auth', __name__)
