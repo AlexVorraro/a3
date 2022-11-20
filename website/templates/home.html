@@ -1,0 +1,80 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% block content %}
+<style>
+	.image-preview {
+	width: 200px;
+	height: 200px;
+	border: 2px solid #dddddd;
+	margin-top: 15px;
+</style>
+<p align="right">{{user}}</p>
+<h1 align="center">Main Page</h1>
+<ul class="list-group list-group-flush" id="messages">
+    <table>
+    {% for song in songs %}
+        <tr>
+        <h1 style="border:black; border-width:5px; border-style:solid;">{{ song['title'] }}</h1>
+        </tr>
+        <tr><h1 style="border:red; border-width:5px; border-style:solid;">{{ song['artist'] }}</h1>
+        </tr>
+        <tr><h1 style="border:orange; border-width:5px; border-style:solid;">{{ song['year'] }}</h1>
+        </tr>
+
+        <div align="center">
+
+                <form action="" method="POST" ><button class="btn btn-primary" type="submit" name="song" value="{{ song['title'] }}"><span class="glyphicon glyphicon-trash"></span> Subscribe</button> </form>
+
+        </div>
+        </br>
+    {% endfor %}
+    </table>
+</ul>
+<form method="POST">
+    <textarea name="title" id="title" class="form-control" placeholder="Title"></textarea>
+    <textarea name="artist" id="artist" class="form-control" placeholder="Artist"></textarea>
+    <textarea name="year" id="year" class="form-control" placeholder="Year"></textarea>
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Query</button>
+    </div>
+</form>
+<h2 align="center">Subscriptions</h2>
+<table>
+    {% for sub in subscriptions %}
+
+        <tr><h1 style="border:red; border-width:5px; border-style:solid;">{{ sub }}</h1>
+        </tr>
+        <div align="center">
+            <form action="" method="POST" ><button class="btn btn-danger" type="submit" name="sub" value="{{ sub }}--delete"><span class="glyphicon glyphicon-trash"></span> Remove</button> </form>
+
+        </div>
+        </br>
+
+    {% endfor %}
+    </table>
+
+<script>
+		const inpFile = document.getElementById("inpFile");
+		const previewContainer = document.getElementById("imagePreview");
+		const previewImage = previewContainer.querySelector(".image-preview__image");
+
+
+		inpFile.addEventListener("change", function(){
+			const file = this.files[0];
+
+			previewImage.style.display = "block";
+
+			if (file) {
+				const reader = new FileReader();
+
+				reader.addEventListener("load", function() {
+					console.log(this);
+					previewImage.setAttribute("src", this.result);
+				});
+
+				reader.readAsDataURL(file);
+
+			}
+		});
+	</script>
+
+{% endblock %}

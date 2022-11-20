@@ -1,0 +1,65 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %}
+{% block content %}
+<style>
+	.image-preview {
+	width: 200px;
+	height: 200px;
+	border: 2px solid #dddddd;
+	margin-top: 15px;
+</style>
+<p align="right">{{user}}</p>
+<h1 align="center">Fortnite</h1>
+<table>
+    <tr>
+        <td><img class='post_image' src={{url}} alt='img' width="300" height="300"></td>
+        <td><h3 align="center">{{desc}}</h3></td>
+  </tr>
+</table>
+
+<br>
+
+<ul class="list-group list-group-flush" id="messages">
+    <table>
+    {% for message in messages %}
+        <tr>
+        <h1 style="border:black; border-width:5px; border-style:solid;">{{ message }}</h1>
+        </tr>
+
+        </br>
+    {% endfor %}
+    </table>
+
+</ul>
+<form method="POST">
+    <textarea name="message" id="message" class="form-control" placeholder="Hey all..."></textarea>
+    <div align="center">
+        <button type="submit" class="btn btn-primary">Post!</button>
+    </div>
+</form>
+
+<script>
+		const inpFile = document.getElementById("inpFile");
+		const previewContainer = document.getElementById("imagePreview");
+		const previewImage = previewContainer.querySelector(".image-preview__image");
+
+
+		inpFile.addEventListener("change", function(){
+			const file = this.files[0];
+
+			previewImage.style.display = "block";
+
+			if (file) {
+				const reader = new FileReader();
+
+				reader.addEventListener("load", function() {
+					console.log(this);
+					previewImage.setAttribute("src", this.result);
+				});
+
+				reader.readAsDataURL(file);
+
+			}
+		});
+	</script>
+
+{% endblock %}

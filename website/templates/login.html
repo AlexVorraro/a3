@@ -1,0 +1,26 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %}
+{% block content %}
+<form method="POST">
+    <br>
+    <h1 align="center">InTeam</h1>
+    <br>
+    <h3 align="center">Login</h3>
+    <div class="form-group">
+        <label for="email">ID</label>
+        <input type="text" class="form-control" name="email" id="email" placeholder="Enter Email">
+    </div>
+
+    <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="Enter Password">
+    </div>
+    <p align="right"><a href="/sign-up">If not registered yet, register now!</a></p>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Login!</button>
+</form>
+    <br />
+    <br />
+    <a href="{{OAUTH_URL}}"><button>Login with Discord</button> </a>
+    <a href="{{reddit_url}}"><button>Login with Reddit</button> </a>
+{% endblock %}

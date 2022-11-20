@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}Login{% endblock %}
+{% block content %}
+<form method="POST">
+    <h3 align="center">User Page</h3>
+    <div class="form-group">
+        <label for="old_password">Old Password</label>
+        <input type="password" class="form-control" name="old_password" id="old_password" placeholder="Enter ID">
+    </div>
+
+    <div class="form-group">
+        <label for="new_password">New Password</label>
+        <input type="password" class="form-control" name="new_password" id="new_password" placeholder="Enter Password">
+    </div>
+
+    <br />
+    <button type="submit" class="btn btn-primary">Change</button>
+</form>
+<br />
+
+<ul class="list-group list-group-flush" id="messages">
+    <table>
+    {% for message in messages %}
+        <tr>
+        <h1 style="border:black; border-width:5px; border-style:solid;">{{ message['author'] }}</h1>
+        </tr>
+        <tr><h1 style="border:red; border-width:5px; border-style:solid;">{{ message['subject'] }}</h1>
+        </tr>
+        <tr><h1 style="border:orange; border-width:5px; border-style:solid;">{{ message['message'] }}</h1>
+        </tr>
+        <tr><h1 style="border:blue; border-width:5px; border-style:solid;">{{ message['timestamp'] }}</h1>
+        </tr>
+        <tr> <button type="submit" class="btn btn-primary">Edit</button>
+        </tr>
+        </br>
+    {% endfor %}
+    </table>
+</ul>
+
+
+{% endblock %}
