@@ -6,20 +6,17 @@ from website import auth
 TABLE_NAME = "Music"
 region = 'us-east-1'
 bucketName='inteams'
-s3 = boto3.resource('s3', aws_access_key_id='ASIAY24XPWCJJD6FII52',
-                          aws_secret_access_key='o2x8LGPQsDvZkKM/Kza0DZJ25D+6npZZv3QYp4Ct',
-                          aws_session_token='FwoGZXIvYXdzEHUaDLfJxYh5g/+SeCLDjiLNAUIqz59qrBS9gbXkSUeIbElD3utkMitH1brRp3zXyyFXgnFS/bV35NQa3tyuY/J11eg9fmtl3j4+tgm1ysR/eBrKOClNhFuZRjSo2fk9XHeKBMJDjZNo/i59J88i/hvlYfuqZ/6jP4HU15G/FtbW4YHg0qrZwL4S6Mr11mqQK0GgX93qV4wlvxHqVTdwsHguF2uSXVLE4VXf1dwdj9rARAU3YZiQBxrFnc9raALDbUyAzKXO7BCic0cCC4zoNpJwf4wn3on319CfjDYO668o3rrmmwYyLVkmX8LxUkpUwA05oAlOFwN8BVeOfhGRrwAqeOi6o2pUXWuwonhy8UyCZpNLtQ==',
+#tokens removed on github
+s3 = boto3.resource('s3', aws_access_key_id='',
+                          aws_secret_access_key='',
+                          aws_session_token='',
                           region_name=region)
 s3=boto3.client('s3')
-# s3.Bucket(bucketName).dowload_file('Arcane Fire','suca.jpg')
-# file='Arcade Fire'
-# cur_path = os.getcwd()
-# filename="website/files"
-# bucket = s3.Bucket(bucketName)
-#----------------------------------------------------------aggiungi credenziali che non funonzia in ec2
-dynamodb = boto3.resource('dynamodb', aws_access_key_id='ASIAY24XPWCJJD6FII52',
-                          aws_secret_access_key='o2x8LGPQsDvZkKM/Kza0DZJ25D+6npZZv3QYp4Ct',
-                          aws_session_token='FwoGZXIvYXdzEHUaDLfJxYh5g/+SeCLDjiLNAUIqz59qrBS9gbXkSUeIbElD3utkMitH1brRp3zXyyFXgnFS/bV35NQa3tyuY/J11eg9fmtl3j4+tgm1ysR/eBrKOClNhFuZRjSo2fk9XHeKBMJDjZNo/i59J88i/hvlYfuqZ/6jP4HU15G/FtbW4YHg0qrZwL4S6Mr11mqQK0GgX93qV4wlvxHqVTdwsHguF2uSXVLE4VXf1dwdj9rARAU3YZiQBxrFnc9raALDbUyAzKXO7BCic0cCC4zoNpJwf4wn3on319CfjDYO668o3rrmmwYyLVkmX8LxUkpUwA05oAlOFwN8BVeOfhGRrwAqeOi6o2pUXWuwonhy8UyCZpNLtQ==',
+
+
+dynamodb = boto3.resource('dynamodb', aws_access_key_id='',
+                          aws_secret_access_key='',
+                          aws_session_token='',
                           region_name=region)
 table = dynamodb.Table(TABLE_NAME)
 views = Blueprint('views', __name__)
